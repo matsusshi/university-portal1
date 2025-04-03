@@ -2,16 +2,23 @@ import express from "express";
 import asyncHandler from "express-async-handler";
 
 import {
-  login,
-  logout,
-  activate,
+  loginStudent,
+  logoutStudent,
+  loginStatusStudent,
 } from "../controllers/auth/studentController.js";
+import { changePasswordStudent } from "../controllers/auth/protectedStudentController.js";
+import { protect } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
+router.post("/login", asyncHandler(loginStudent));
+router.get("/logout", asyncHandler(logoutStudent));
+router.get("/login-status", asyncHandler(loginStatusStudent));
 
-router.post("/login", asyncHandler(login));
-router.get("/logout", asyncHandler(logout));
-router.post("/activate", asyncHandler(activate));
+router.patch(
+  "/change-password",
+  asyncHandler(protect),
+  asyncHandler(changePasswordStudent),
+);
 
 export default router;

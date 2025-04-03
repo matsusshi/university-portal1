@@ -53,21 +53,36 @@ CREATE TABLE room
 CREATE TABLE section
 (
   section_no int         NOT NULL,
+<<<<<<< HEAD
   course_id  varchar(20)     NOT NULL,
   room_no    varchar(20) NOT NULL,
+=======
+  course_id  char(6)     NOT NULL,
+  room_no    varchar(7)  NOT NULL,
+>>>>>>> 5842e4403a163c6cc2c029b3aa6a6aa44d620cbb
   capacity   int        ,
   day        varchar(20)  NOT NULL,
   start_time time        NOT NULL,
   end_time   time        NOT NULL,
+<<<<<<< HEAD
   year       varchar(20)    NOT NULL,
   season     varchar(20) NOT NULL,
+=======
+  year       char(4)     NOT NULL,
+  season     varchar(16) NOT NULL,
+>>>>>>> 5842e4403a163c6cc2c029b3aa6a6aa44d620cbb
   PRIMARY KEY (section_no, course_id, year, season)
 );
 
 CREATE TABLE semester
 (
+<<<<<<< HEAD
   year   varchar(20)     NOT NULL,
   season varchar(20) NOT NULL,
+=======
+  year   char(4)     NOT NULL,
+  season varchar(16) NOT NULL,
+>>>>>>> 5842e4403a163c6cc2c029b3aa6a6aa44d620cbb
   PRIMARY KEY (year, season)
 );
 
@@ -85,7 +100,11 @@ CREATE TABLE student
 CREATE TABLE student_login
 (
   password     varchar(512) DEFAULT 123456789,
+<<<<<<< HEAD
   id           varchar(20)     NOT NULL,
+=======
+  id           char(13)     NOT NULL,
+>>>>>>> 5842e4403a163c6cc2c029b3aa6a6aa44d620cbb
   is_active    boolean      NOT NULL DEFAULT FALSE,
   is_dismissed boolean      NOT NULL DEFAULT FALSE,
   PRIMARY KEY (id)
@@ -95,19 +114,32 @@ CREATE TABLE student_token
 (
   created_date date     NOT NULL,
   expired_date date     NOT NULL,
+<<<<<<< HEAD
   id           varchar(20) NOT NULL,
+=======
+  id           char(13) NOT NULL,
+>>>>>>> 5842e4403a163c6cc2c029b3aa6a6aa44d620cbb
   token        varchar(512) ,
   PRIMARY KEY (id)
 );
 
 CREATE TABLE takes
 (
+<<<<<<< HEAD
   id         varchar(20)    NOT NULL,
   grade      numeric    ,
   is_dropped boolean    ,
   section_no int         NOT NULL,
   course_id  varchar(20)     NOT NULL,
   year       varchar(20)     NOT NULL,
+=======
+  id         char(13)    NOT NULL,
+  grade      numeric    ,
+  is_dropped boolean    ,
+  section_no int         NOT NULL,
+  course_id  char(6)     NOT NULL,
+  year       char(4)     NOT NULL,
+>>>>>>> 5842e4403a163c6cc2c029b3aa6a6aa44d620cbb
   season     varchar(16) NOT NULL,
   PRIMARY KEY (id, section_no, course_id, year, season)
 );
@@ -116,9 +148,15 @@ CREATE TABLE teaches
 (
   faculty_short_id varchar(20) NOT NULL,
   section_no       int         NOT NULL,
+<<<<<<< HEAD
   course_id        varchar(20)    NOT NULL,
   year             varchar(20)    NOT NULL,
   season           varchar(20) NOT NULL,
+=======
+  course_id        char(6)     NOT NULL,
+  year             char(4)     NOT NULL,
+  season           varchar(16) NOT NULL,
+>>>>>>> 5842e4403a163c6cc2c029b3aa6a6aa44d620cbb
   PRIMARY KEY (faculty_short_id, section_no, course_id, year, season)
 );
 
